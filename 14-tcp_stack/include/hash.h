@@ -11,7 +11,8 @@
 static inline u8 hash8(char *buf, int len)
 {
 	u8 result = 0;
-	for (int i = 0; i < len; i++)
+	int i;
+	for (i = 0; i < len; i++)
 		result ^= buf[i];
 
 	return result;
@@ -20,7 +21,8 @@ static inline u8 hash8(char *buf, int len)
 static inline u16 hash16(char *buf, int len)
 {
 	u16 result = 0;
-	for (int i = 0; i < len / 2 * 2; i += 2)
+	int i;
+	for (i = 0; i < len / 2 * 2; i += 2)
 		result ^= *(u16 *)(buf + i);
 
 	if (len % 2)

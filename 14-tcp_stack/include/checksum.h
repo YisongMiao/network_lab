@@ -7,7 +7,8 @@
 // as the initial value
 static inline u16 checksum(u16 *buf, int nbytes, u32 sum)
 {
-	for (int i = 0; i < nbytes / 2; i++)
+	int i;
+	for (i = 0; i < nbytes / 2; i++)
 		sum += buf[i];
  
     sum = (sum >> 16) + (sum & 0xffff);

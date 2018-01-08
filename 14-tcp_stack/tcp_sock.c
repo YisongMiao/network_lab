@@ -28,13 +28,14 @@ inline void tcp_set_state(struct tcp_sock *tsk, int state)
 // init tcp hash table and tcp timer
 void init_tcp_stack()
 {
-	for (int i = 0; i < TCP_HASH_SIZE; i++)
+	int i;
+	for (i = 0; i < TCP_HASH_SIZE; i++)
 		init_list_head(&tcp_established_sock_table[i]);
 
-	for (int i = 0; i < TCP_HASH_SIZE; i++)
+	for (i = 0; i < TCP_HASH_SIZE; i++)
 		init_list_head(&tcp_listen_sock_table[i]);
 
-	for (int i = 0; i < TCP_HASH_SIZE; i++)
+	for (i = 0; i < TCP_HASH_SIZE; i++)
 		init_list_head(&tcp_bind_sock_table[i]);
 
 	pthread_t timer;
@@ -95,7 +96,17 @@ void free_tcp_sock(struct tcp_sock *tsk)
 struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u16 dport)
 {
 	fprintf(stdout, "TODO: implement this function please.\n");
-
+	struct list_head *list;
+	int hash = tcp_hash_function(saddr, daddr, sport, dport); 
+	list = &tcp_established_sock_table[hash];
+	struct tcp_sock *tmp;
+	list_for_each_entry(tmp, list, hash_list) {
+		log(DEBUG, IP_FMT", dip, lookup", HOST_IP_FMT_STR(tmp->sk_dip));
+		log(DEBUG, IP_FMT", sip, lookup", HOST_IP_FMT_STR(tmp->sk_sip));
+		log(DEBUG, "%hu, dport, lookup", tmp->sk_dport);
+		log(DEBUG, "%hu, sport, lookup", tmp->sk_sport);
+		return tmp;
+	}
 	return NULL;
 }
 
@@ -105,7 +116,17 @@ struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u1
 struct tcp_sock *tcp_sock_lookup_listen(u32 saddr, u16 sport)
 {
 	fprintf(stdout, "TODO: implement this function please.\n");
-
+	struct list_head *list;
+	int hash = tcp_hash_function(0, 0, sport, 0);
+	list = &tcp_listen_sock_table[hash];
+	struct tcp_sock *tmp;
+	list_for_each_entry(tmp, list, hash_list) {
+		log(DEBUG, IP_FMT", dip, listen lookup", HOST_IP_FMT_STR(tmp->sk_dip));
+		log(DEBUG, IP_FMT", sip, listen lookup", HOST_IP_FMT_STR(tmp->sk_sip));
+		log(DEBUG, "%hu, dport, listen lookup", tmp->sk_dport);
+		log(DEBUG, "%hu, sport, listen lookup", tmp->sk_sport);
+		return tmp;
+	}
 	return NULL;
 }
 
@@ -162,7 +183,8 @@ static int tcp_port_in_use(u16 sport)
 // find a free port by looking up bind_table
 static u16 tcp_get_port()
 {
-	for (u16 port = PORT_MIN; port < PORT_MAX; port++) {
+	u16 port;
+	for (port = PORT_MIN; port < PORT_MAX; port++) {
 		if (!tcp_port_in_use(port))
 			return port;
 	}
@@ -251,7 +273,20 @@ int tcp_sock_bind(struct tcp_sock *tsk, struct sock_addr *skaddr)
 int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 {
 	fprintf(stdout, "TODO: implement this function please.\n");
+	tsk->sk_dip = ntohl(skaddr->ip);
+	tsk->sk_dport = ntohs(skaddr->port);
+	tsk->sk_sip = ntohl(inet_addr("10.0.0.2"));
+	if(tcp_sock_set_sport(tsk, 12346) < 0){
+		log(ERROR, "12346 is already used");
+	}
+	//log(DEBUG, IP_FMT", dip", HOST_IP_FMT_STR(tsk->sk_dip));
+	//log(DEBUG, IP_FMT", sip", HOST_IP_FMT_STR(tsk->sk_sip));
+	//log(DEBUG, "%hu, dport", tsk->sk_dport);
+	//log(DEBUG, "%hu, sport", tsk->sk_sport);
 
+	tcp_send_control_packet(tsk, TCP_SYN);
+	tcp_set_state(tsk, TCP_SYN_SENT);
+	sleep_on(tsk->wait_connect);
 	return -1;
 }
 
@@ -260,8 +295,10 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 int tcp_sock_listen(struct tcp_sock *tsk, int backlog)
 {
 	fprintf(stdout, "TODO: implement this function please.\n");
-
-	return -1;
+	tsk->backlog = TCP_MAX_BACKLOG;
+	tcp_set_state(tsk, TCP_LISTEN);
+	return tcp_hash(tsk);
+	//return -1;
 }
 
 // check whether the accept queue is full
@@ -300,7 +337,14 @@ inline struct tcp_sock *tcp_sock_accept_dequeue(struct tcp_sock *tsk)
 struct tcp_sock *tcp_sock_accept(struct tcp_sock *tsk)
 {
 	fprintf(stdout, "TODO: implement this function please.\n");
-
+	 
+	if(list_empty(&(tsk->accept_queue))){
+		sleep_on(tsk->wait_accept);
+	}
+	else{
+		struct tcp_sock * the_tcp_socket = tcp_sock_accept_dequeue(tsk);
+		return the_tcp_socket;
+	}
 	return NULL;
 }
 

@@ -226,7 +226,8 @@ void ustack_run()
 		else if (ready == 0)
 			continue;
 
-		for (int i = 0; i < instance->nifs; i++) {
+		int i;
+		for (i = 0; i < instance->nifs; i++) {
 			if (instance->fds[i].revents & POLLIN) {
 				len = recvfrom(instance->fds[i].fd, buf, ETH_FRAME_LEN, 0, \
 						(struct sockaddr*)&addr, &addr_len);

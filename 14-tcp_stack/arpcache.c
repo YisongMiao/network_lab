@@ -17,7 +17,8 @@ int arpcache_lookup(u32 ip4, u8 mac[ETH_ALEN])
 	int found = 0;
 
 	pthread_mutex_lock(&arpcache.lock);
-	for (int i = 0; i < MAX_ARP_SIZE; i++) {
+	int i;
+	for (i = 0; i < MAX_ARP_SIZE; i++) {
 		struct arp_cache_entry *entry = &arpcache.entries[i];
 		if (entry->valid && entry->ip4 == ip4) {
 			memcpy(mac, entry->mac, ETH_ALEN);
@@ -75,7 +76,8 @@ void arpcache_insert(u32 ip4, u8 mac[ETH_ALEN])
 	pthread_mutex_lock(&arpcache.lock);
 	struct arp_cache_entry *entries = arpcache.entries;
 	int pos = -1, found = 0;
-	for (int i = 0; i < MAX_ARP_SIZE; i++) {
+	int i;
+	for (i = 0; i < MAX_ARP_SIZE; i++) {
 		if (entries[i].valid && entries[i].ip4 == ip4) {
 			memcpy(entries[i].mac, mac, ETH_ALEN);
 			entries[i].added = time(NULL);
@@ -130,7 +132,8 @@ void *arpcache_sweep(void *arg)
 		pthread_mutex_lock(&arpcache.lock);
 	
 		struct arp_cache_entry *entries = arpcache.entries;
-		for (int i = 0; i < MAX_ARP_SIZE; i++) {
+		int i;
+		for (i = 0; i < MAX_ARP_SIZE; i++) {
 			if (entries[i].valid && now - entries[i].added >= ARP_ENTRY_TIMEOUT) 
 				entries[i].valid = 0;
 		}
