@@ -30,10 +30,11 @@ void tcp_state_listen(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 
 	new_tsk->rcv_nxt = cb->seq + 1;  //ack = x + 1, see in PPT Chapter5-2, Page41
 
-	//list_add_tail(&(new_tsk->parent->listen_queue), &pkt_list);
+	//put into its parent's listen_queue
+	list_add_tail(&new_tsk->list, &new_tsk->parent->listen_queue);
 
 	tcp_hash(new_tsk);
-	printf("Hashed\n");
+	printf("Hashed child tsk!\n");
 
 	tcp_send_control_packet(new_tsk, TCP_SYN|TCP_ACK);
 	printf("*****Sent a TCP packet: TCP_SYN|TCP_ACK\n");
@@ -93,8 +94,24 @@ static inline void tcp_update_window_safe(struct tcp_sock *tsk, struct tcp_cb *c
 void tcp_state_syn_recv(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 {
 	fprintf(stdout, "TODO: implement this function please.syn_recv\n");
-	//list_add_tail(&(tsk->parent->listen), &pkt_list);
-	//tcp_set_state(tsk, TCP_ESTABLISHED);
+	log(DEBUG, IP_FMT", daddr", HOST_IP_FMT_STR(tsk->sk_dip));
+	log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(tsk->sk_sip));
+	log(DEBUG, "%hu, dport", tsk->sk_dport);
+	log(DEBUG, "%hu, sport", tsk->sk_sport);
+	tcp_set_state(tsk, TCP_ESTABLISHED);
+	printf("1\n");
+	list_delete_entry(&tsk->list);
+	printf("2\n");
+	if(tsk->parent){
+		printf("parent exist\n");
+	}
+	else{
+		printf("parent not exist\n");
+	}
+	tcp_sock_accept_enqueue(tsk);
+	dump_socket_info(tsk);
+	printf("3\n");
+	wake_up(tsk->parent->wait_accept);
 }
 
 #ifndef max
@@ -142,7 +159,25 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 	//log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(cb->saddr));
 	//log(DEBUG, "%hu, dport", cb->dport);
 	//log(DEBUG, "%hu, sport", cb->sport);
-
+	switch(tsk->state){
+		case TCP_CLOSED:
+			printf("processing closed\n");
+			tcp_state_closed(tsk, cb, packet);
+			break;
+		case TCP_LISTEN:
+			printf("processing listen\n");
+			tcp_state_listen(tsk, cb, packet);
+			break;
+		case TCP_SYN_SENT:
+			printf("processing syn_sent\n");
+			tcp_state_syn_sent(tsk, cb, packet);
+			break;
+		case TCP_SYN_RECV:
+			printf("processing syn_recv\n");
+			tcp_state_syn_recv(tsk, cb, packet);
+			break;
+	}
+	/*
 	if(tsk->state == TCP_CLOSED){
 		printf("processing closed\n");
 		tcp_state_closed(tsk, cb, packet);
@@ -159,4 +194,6 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 		printf("processing syn_recv\n");
 		tcp_state_syn_recv(tsk, cb, packet);
 	}
+	*/
+	printf("This process is over\n");
 }

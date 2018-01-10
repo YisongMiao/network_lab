@@ -132,4 +132,6 @@ void tcp_sock_close(struct tcp_sock *tsk);
 int tcp_sock_read(struct tcp_sock *tsk, char *buf, int len);
 int tcp_sock_write(struct tcp_sock *tsk, char *buf, int len);
 
+void dump_socket_info(struct tcp_sock *tsk);
+
 #endif

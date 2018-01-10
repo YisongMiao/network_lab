@@ -271,6 +271,14 @@ int tcp_sock_bind(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	return err;
 }
 
+void dump_socket_info(struct tcp_sock *tsk){
+	printf("Dumping socket info\n");
+	log(DEBUG, IP_FMT", dip", HOST_IP_FMT_STR(tsk->sk_dip));
+	log(DEBUG, IP_FMT", sip", HOST_IP_FMT_STR(tsk->sk_sip));
+	log(DEBUG, "%hu, dport", tsk->sk_dport);
+	log(DEBUG, "%hu, sport", tsk->sk_sport);
+}
+
 // connect to the remote tcp sock specified by skaddr
 //
 // XXX: skaddr here contains network-order variables
@@ -291,10 +299,6 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	if(tcp_sock_set_sport(tsk, 12346) < 0){  //here automatically
 		log(ERROR, "12346 is already used");
 	}
-	//log(DEBUG, IP_FMT", dip", HOST_IP_FMT_STR(tsk->sk_dip));
-	//log(DEBUG, IP_FMT", sip", HOST_IP_FMT_STR(tsk->sk_sip));
-	//log(DEBUG, "%hu, dport", tsk->sk_dport);
-	//log(DEBUG, "%hu, sport", tsk->sk_sport);
 	printf("Trying to send\n");
 	tsk->rcv_nxt = 0;  //means ack eqauls to 0
 	tcp_send_control_packet(tsk, TCP_SYN);
@@ -351,6 +355,16 @@ inline struct tcp_sock *tcp_sock_accept_dequeue(struct tcp_sock *tsk)
 	return new_tsk;
 }
 
+// pop the first tcp sock of the listen_queue
+inline struct tcp_sock *tcp_sock_listen_dequeue(struct tcp_sock *tsk)
+{
+	struct tcp_sock *new_tsk = list_entry(tsk->listen_queue.next, struct tcp_sock, list);
+	list_delete_entry(&new_tsk->list);
+	init_list_head(&new_tsk->list);
+
+	return new_tsk;
+}
+
 // if accept_queue is not emtpy, pop the first tcp sock and accept it,
 // otherwise, sleep on the wait_accept for the incoming connection requests
 struct tcp_sock *tcp_sock_accept(struct tcp_sock *tsk)
@@ -360,6 +374,10 @@ struct tcp_sock *tcp_sock_accept(struct tcp_sock *tsk)
 	 
 	if(list_empty(&(tsk->accept_queue))){
 		sleep_on(tsk->wait_accept);
+		printf("accept Force Awaken\n");
+		struct tcp_sock * the_tcp_socket = tcp_sock_accept_dequeue(tsk);
+		dump_socket_info(the_tcp_socket);
+		return the_tcp_socket;
 	}
 	else{
 		struct tcp_sock * the_tcp_socket = tcp_sock_accept_dequeue(tsk);
