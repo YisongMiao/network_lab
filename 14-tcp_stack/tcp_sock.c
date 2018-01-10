@@ -302,7 +302,9 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	printf("Trying to send\n");
 	tsk->rcv_nxt = 0;  //means ack eqauls to 0
 	tcp_send_control_packet(tsk, TCP_SYN);
+	printf("control packet sent\n");
 	tcp_set_state(tsk, TCP_SYN_SENT);
+	printf("State set\n");
 	tcp_hash(tsk);  //BB-8 Edited
 	printf("Hashed!!!\n");
 	sleep_on(tsk->wait_connect);

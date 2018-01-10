@@ -31,7 +31,7 @@ void _iface_send_packet(iface_info_t *iface, char *packet, int len)
 void iface_send_packet(iface_info_t *iface, char *packet, int len)
 {
 	_iface_send_packet(iface, packet, len);
-	free(packet);
+	//free(packet);  //BB-8 Edited
 }
 
 void broadcast_packet(iface_info_t *in_iface, char *packet, int len)

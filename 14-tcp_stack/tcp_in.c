@@ -182,6 +182,7 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			if(cb->flags & TCP_ACK){
 				tcp_set_state(tsk, TCP_FIN_WAIT_2);
 			}
+			break;
 		case TCP_FIN_WAIT_2:
 			printf("processing TCP_FIN_WAIT_2\n");
 			if(cb->flags & TCP_FIN){
@@ -189,11 +190,13 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 				tcp_send_control_packet(tsk, TCP_ACK);
 				tcp_set_state(tsk, TCP_TIME_WAIT);
 			}
+			break;
 		case TCP_LAST_ACK:
 			printf("processing TCP_LAST_ACK\n");
 			if(cb->flags & TCP_ACK){
 				tcp_set_state(tsk, TCP_CLOSED);
 			}
+			break;
 	}
 	printf("This process is over\n");
 }
