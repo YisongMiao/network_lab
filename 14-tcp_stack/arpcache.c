@@ -67,6 +67,7 @@ void arpcache_append_packet(iface_info_t *iface, u32 ip4, char *packet, int len)
 
 	if (!found) {
 		// last, send arp request packet
+		//printf("Sending arp request\n");
 		arp_send_request(iface, ip4);
 	}
 }
