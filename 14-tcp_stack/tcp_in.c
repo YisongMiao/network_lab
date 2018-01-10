@@ -94,14 +94,8 @@ static inline void tcp_update_window_safe(struct tcp_sock *tsk, struct tcp_cb *c
 void tcp_state_syn_recv(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 {
 	fprintf(stdout, "TODO: implement this function please.syn_recv\n");
-	log(DEBUG, IP_FMT", daddr", HOST_IP_FMT_STR(tsk->sk_dip));
-	log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(tsk->sk_sip));
-	log(DEBUG, "%hu, dport", tsk->sk_dport);
-	log(DEBUG, "%hu, sport", tsk->sk_sport);
 	tcp_set_state(tsk, TCP_ESTABLISHED);
-	printf("1\n");
 	list_delete_entry(&tsk->list);
-	printf("2\n");
 	if(tsk->parent){
 		printf("parent exist\n");
 	}
@@ -109,8 +103,6 @@ void tcp_state_syn_recv(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 		printf("parent not exist\n");
 	}
 	tcp_sock_accept_enqueue(tsk);
-	dump_socket_info(tsk);
-	printf("3\n");
 	wake_up(tsk->parent->wait_accept);
 }
 
@@ -176,24 +168,32 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			printf("processing syn_recv\n");
 			tcp_state_syn_recv(tsk, cb, packet);
 			break;
+		case TCP_ESTABLISHED:
+			//it is only for the server side.
+			printf("processing establish\n");
+			if(cb->flags & TCP_FIN){
+				tsk->rcv_nxt = cb->seq + 1;
+				tcp_send_control_packet(tsk, TCP_ACK);
+				tcp_set_state(tsk, TCP_CLOSE_WAIT);
+			}
+			break;
+		case TCP_FIN_WAIT_1:
+			printf("processing TCP_FIN_WAIT_1\n");
+			if(cb->flags & TCP_ACK){
+				tcp_set_state(tsk, TCP_FIN_WAIT_2);
+			}
+		case TCP_FIN_WAIT_2:
+			printf("processing TCP_FIN_WAIT_2\n");
+			if(cb->flags & TCP_FIN){
+				tsk->rcv_nxt = cb->seq + 1;
+				tcp_send_control_packet(tsk, TCP_ACK);
+				tcp_set_state(tsk, TCP_TIME_WAIT);
+			}
+		case TCP_LAST_ACK:
+			printf("processing TCP_LAST_ACK\n");
+			if(cb->flags & TCP_ACK){
+				tcp_set_state(tsk, TCP_CLOSED);
+			}
 	}
-	/*
-	if(tsk->state == TCP_CLOSED){
-		printf("processing closed\n");
-		tcp_state_closed(tsk, cb, packet);
-	}
-	if(tsk->state == TCP_LISTEN){
-		printf("processing listen\n");
-		tcp_state_listen(tsk, cb, packet);
-	}
-	if(tsk->state == TCP_SYN_SENT){
-		printf("processing syn_sent\n");
-		tcp_state_syn_sent(tsk, cb, packet);
-	}
-	if(tsk->state == TCP_SYN_RECV){
-		printf("processing syn_recv\n");
-		tcp_state_syn_recv(tsk, cb, packet);
-	}
-	*/
 	printf("This process is over\n");
 }

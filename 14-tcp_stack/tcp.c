@@ -75,13 +75,6 @@ void handle_tcp_packet(char *packet, struct iphdr *ip, struct tcphdr *tcp)
 	struct tcp_cb cb;
 	tcp_cb_init(ip, tcp, &cb);
 
-	printf("---------The CB:\n");
-	log(DEBUG, IP_FMT", daddr", HOST_IP_FMT_STR(cb.daddr));
-	log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(cb.saddr));
-	log(DEBUG, "%hu, dport", cb.dport);
-	log(DEBUG, "%hu, sport", cb.sport);
-
 	struct tcp_sock *tsk = tcp_sock_lookup(&cb);
-	printf("------------------------Going to process tcp packet\n");
 	tcp_process(tsk, &cb, packet);
 }
