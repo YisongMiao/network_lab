@@ -50,6 +50,9 @@ struct tcp_sock *alloc_tcp_sock()
 
 	memset(tsk, 0, sizeof(struct tcp_sock));
 
+	//tsk->snd_nxt = 90;  //question
+	tsk->snd_nxt = rand();
+
 	tsk->state = TCP_CLOSED;
 	tsk->rcv_wnd = TCP_DEFAULT_WINDOW;
 
@@ -95,19 +98,14 @@ void free_tcp_sock(struct tcp_sock *tsk)
 // lookup tcp sock in established_table with key (saddr, daddr, sport, dport)
 struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u16 dport)
 {
-	fprintf(stdout, "TODO: implement this function please.lookup establish\n");
+	//fprintf(stdout, "TODO: implement this function please.lookup establish\n");
+	printf("-----Under tcp_sock_lookup_established\n");
 	struct list_head *list;
 	int hash = tcp_hash_function(saddr, daddr, sport, dport); 
 	list = &tcp_established_sock_table[hash];
 	struct tcp_sock *tmp;
 	printf("------Desired hash entry is %d------\n", hash);
-	list_for_each_entry(tmp, list, hash_list) {
-		printf("Any entry?\n");
-		log(DEBUG, IP_FMT", dip, looked up", HOST_IP_FMT_STR(tmp->sk_dip));
-		log(DEBUG, IP_FMT", sip, looked up", HOST_IP_FMT_STR(tmp->sk_sip));
-		log(DEBUG, "%hu, dport, looked up", tmp->sk_dport);
-		log(DEBUG, "%hu, sport, looked up", tmp->sk_sport);
-		
+	list_for_each_entry(tmp, list, hash_list) {		
 		return tmp;
 	}
 	return NULL;
@@ -118,19 +116,14 @@ struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u1
 // In accordance with BSD socket, saddr is in the argument list, but never used.
 struct tcp_sock *tcp_sock_lookup_listen(u32 saddr, u16 sport)
 {
-	fprintf(stdout, "TODO: implement this function please.lookup listen\n");
+	//fprintf(stdout, "TODO: implement this function please.lookup listen\n");
+	printf("-----Under tcp_sock_lookup_listen\n");
 	struct list_head *list;
 	int hash = tcp_hash_function(0, 0, sport, 0);
 	list = &tcp_listen_sock_table[hash];
 	struct tcp_sock *tmp;
 	printf("------Desired hash entry is %d------\n", hash);
 	list_for_each_entry(tmp, list, hash_list) {
-		printf("Any entry?\n");
-		log(DEBUG, IP_FMT", dip, listen looked up", HOST_IP_FMT_STR(tmp->sk_dip));
-		log(DEBUG, IP_FMT", sip, listen looked up", HOST_IP_FMT_STR(tmp->sk_sip));
-		log(DEBUG, "%hu, dport, listen looked up", tmp->sk_dport);
-		log(DEBUG, "%hu, sport, listen looked up", tmp->sk_sport);
-		
 		return tmp;
 	}
 	return NULL;
@@ -143,15 +136,16 @@ struct tcp_sock *tcp_sock_lookup(struct tcp_cb *cb)
 		daddr = cb->saddr;
 	u16 sport = cb->dport,
 		dport = cb->sport;
-	//log(DEBUG, IP_FMT", given", HOST_IP_FMT_STR(daddr));
-	//log(DEBUG, IP_FMT", given", HOST_IP_FMT_STR(saddr));
-	//log(DEBUG, "%hu, given", dport);
-	//log(DEBUG, "%hu, given", sport);
-	printf("tcp_sock_lookup sport: %d\n", sport);
 
 	struct tcp_sock *tsk = tcp_sock_lookup_established(saddr, daddr, sport, dport);
+	if(tsk){
+		printf("lookup establish success\n");
+	}
 	if (!tsk){
 		tsk = tcp_sock_lookup_listen(saddr, sport);
+		if(tsk){
+			printf("lookup listen success\n");
+		}
 	}
 	if(!tsk){
 		printf("Can't lookup tcp_sock\n");
@@ -233,17 +227,12 @@ int tcp_hash(struct tcp_sock *tsk)
 		return -1;
 
 	if (tsk->state == TCP_LISTEN) {
-		printf("-----Hashing a listen-----\n");
 		hash = tcp_hash_function(0, 0, tsk->sk_sport, 0);
 		list = &tcp_listen_sock_table[hash];
-		list_add_head(&tsk->hash_list, list);
 	}
 	else {
-		printf("-----Hashing a establish-----\n");
-		//BB-8 Edited
-		//int hash = tcp_hash_function(tsk->sk_sip, tsk->sk_dip, tsk->sk_sport, tsk->sk_dport); 
-		hash = tcp_hash_function(tsk->sk_sip, tsk->sk_dip, tsk->sk_sport, tsk->sk_dport); 
-		printf("------Hashing index %d------\n", hash);
+		int hash = tcp_hash_function(tsk->sk_sip, tsk->sk_dip, \
+				tsk->sk_sport, tsk->sk_dport); 
 		list = &tcp_established_sock_table[hash];
 
 		struct tcp_sock *tmp;
@@ -252,26 +241,12 @@ int tcp_hash(struct tcp_sock *tsk)
 					tsk->sk_dip == tmp->sk_dip &&
 					tsk->sk_sport == tmp->sk_sport &&
 					tsk->sk_dport == tmp->sk_dport)
-				return -1; //means already exist
+				return -1;
 		}
-		list_add_head(&tsk->hash_list, list);
 	}
-	printf("------Hashing index %d------\n", hash);
-	//list_add_head(&tsk->hash_list, list);
-	printf("Hashed\n");
-	tcp_sock_inc_ref_cnt(tsk);
 
-	struct tcp_sock *tmp;
-	list = &tcp_established_sock_table[hash];
-	list_for_each_entry(tmp, list, hash_list){
-		if(tmp){
-			printf("!!!tmp esist!!!\n");
-			log(DEBUG, IP_FMT", dip", HOST_IP_FMT_STR(tmp->sk_dip));
-		}
-		else{
-			printf("&&&Not exist&&&\n");
-		}
-	}
+	list_add_head(&tsk->hash_list, list);
+	tcp_sock_inc_ref_cnt(tsk);
 
 	return 0;
 }
@@ -307,7 +282,8 @@ int tcp_sock_bind(struct tcp_sock *tsk, struct sock_addr *skaddr)
 //    means the connection is established.
 int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 {
-	fprintf(stdout, "TODO: implement this function please. connect\n");
+	//fprintf(stdout, "TODO: implement this function please. connect\n");
+	printf("-----Under tcp_sock_connect\n");
 	printf("Doing tcp sock connect\n");
 	tsk->sk_dip = ntohl(skaddr->ip);
 	tsk->sk_dport = ntohs(skaddr->port);
@@ -319,20 +295,25 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	//log(DEBUG, IP_FMT", sip", HOST_IP_FMT_STR(tsk->sk_sip));
 	//log(DEBUG, "%hu, dport", tsk->sk_dport);
 	//log(DEBUG, "%hu, sport", tsk->sk_sport);
-	printf("snd_nxt is: %d\n", tsk->snd_nxt);
-
+	printf("Trying to send\n");
+	tsk->rcv_nxt = 0;  //means ack eqauls to 0
 	tcp_send_control_packet(tsk, TCP_SYN);
 	tcp_set_state(tsk, TCP_SYN_SENT);
 	tcp_hash(tsk);  //BB-8 Edited
+	printf("Hashed!!!\n");
 	sleep_on(tsk->wait_connect);
-	return -1;
+	printf("The Force Awaken\n");
+	//question
+	//return 1;
+	return 1;
 }
 
 // set backlog (the maximum number of pending connection requst), switch the
 // TCP_STATE, and hash the tcp sock into listen_table
 int tcp_sock_listen(struct tcp_sock *tsk, int backlog)
 {
-	fprintf(stdout, "TODO: implement this function please. listen\n");
+	//fprintf(stdout, "TODO: implement this function please. listen\n");
+	printf("-----Under tcp_sock_listen\n");
 	tsk->backlog = TCP_MAX_BACKLOG;
 	tcp_set_state(tsk, TCP_LISTEN);
 	int hash_condition = tcp_hash(tsk);
@@ -374,7 +355,8 @@ inline struct tcp_sock *tcp_sock_accept_dequeue(struct tcp_sock *tsk)
 // otherwise, sleep on the wait_accept for the incoming connection requests
 struct tcp_sock *tcp_sock_accept(struct tcp_sock *tsk)
 {
-	fprintf(stdout, "TODO: implement this function please. accept\n");
+	//fprintf(stdout, "TODO: implement this function please. accept\n");
+	printf("-----Under tcp_sock_accept\n");
 	 
 	if(list_empty(&(tsk->accept_queue))){
 		sleep_on(tsk->wait_accept);
