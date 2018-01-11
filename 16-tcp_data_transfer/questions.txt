@@ -1,0 +1,4 @@
+1. first seq != 0, why?
+
+all the questions are with:
+//question
