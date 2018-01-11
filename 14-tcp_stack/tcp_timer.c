@@ -36,6 +36,7 @@ void tcp_set_timewait_timer(struct tcp_sock *tsk)
 	list_add_tail(&timer->list, &timer_list);
 
 	tcp_sock_inc_ref_cnt(tsk);
+	//printf("Already set timer\n");
 }
 
 // scan the timer_list periodically by calling tcp_scan_timer_list

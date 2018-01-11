@@ -151,6 +151,7 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 	//log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(cb->saddr));
 	//log(DEBUG, "%hu, dport", cb->dport);
 	//log(DEBUG, "%hu, sport", cb->sport);
+	printf("Current TCP state is: %s\n", tcp_state_str[tsk->state]);
 	switch(tsk->state){
 		case TCP_CLOSED:
 			printf("processing closed\n");
@@ -189,6 +190,7 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 				tsk->rcv_nxt = cb->seq + 1;
 				tcp_send_control_packet(tsk, TCP_ACK);
 				tcp_set_state(tsk, TCP_TIME_WAIT);
+				tcp_set_timewait_timer(tsk);
 			}
 			break;
 		case TCP_LAST_ACK:

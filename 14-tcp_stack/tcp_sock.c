@@ -301,17 +301,20 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	}
 	printf("Trying to send\n");
 	tsk->rcv_nxt = 0;  //means ack eqauls to 0
-	tcp_send_control_packet(tsk, TCP_SYN);
-	printf("control packet sent\n");
 	tcp_set_state(tsk, TCP_SYN_SENT);
+	printf("control packet sent\n");
+	//tcp_set_state(tsk, TCP_SYN_SENT);
 	printf("State set\n");
 	tcp_hash(tsk);  //BB-8 Edited
 	printf("Hashed!!!\n");
-	sleep_on(tsk->wait_connect);
-	printf("The Force Awaken\n");
+	tcp_send_control_packet(tsk, TCP_SYN);
+	//sleep_on(tsk->wait_connect);
+	if(!sleep_on(tsk->wait_connect)){
+		printf("The Force Awaken\n");
+		return 1;
+	}
 	//question
-	//return 1;
-	return 1;
+	return -1;
 }
 
 // set backlog (the maximum number of pending connection requst), switch the
@@ -421,12 +424,15 @@ void tcp_sock_close(struct tcp_sock *tsk)
 		case TCP_SYN_SENT:
 			break;
 		case TCP_ESTABLISHED:
-			tcp_send_control_packet(tsk, TCP_FIN|TCP_ACK);
 			tcp_set_state(tsk, TCP_FIN_WAIT_1);
+			tsk->state = TCP_FIN_WAIT_1;
+			printf("Switched state already\n");
+			tcp_send_control_packet(tsk, TCP_FIN|TCP_ACK);
+			//tcp_set_state(tsk, TCP_FIN_WAIT_1);
 			break;
 		case TCP_CLOSE_WAIT:
-			tcp_send_control_packet(tsk, TCP_FIN|TCP_ACK);
 			tcp_set_state(tsk, TCP_LAST_ACK);
+			tcp_send_control_packet(tsk, TCP_FIN|TCP_ACK);
 			break;
 	}
 }

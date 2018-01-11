@@ -3,17 +3,18 @@
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.cli import CLI
+from mininet.link import TCLink
 
 class TCPTopo(Topo):
     def build(self):
         h1 = self.addHost('h1')
         h2 = self.addHost('h2')
 
-        self.addLink(h1, h2)
+        self.addLink(h1, h2, deley = '10ms')
 
 if __name__ == '__main__':
     topo = TCPTopo()
-    net = Mininet(topo = topo, controller = None) 
+    net = Mininet(topo = topo, controller = None, link = TCLink) 
 
     h1, h2 = net.get('h1', 'h2')
     h1.cmd('ifconfig h1-eth0 10.0.0.1/24')

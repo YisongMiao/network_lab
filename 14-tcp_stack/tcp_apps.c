@@ -52,6 +52,7 @@ void *tcp_client(void *arg)
 	}
 
 	sleep(1);
+	printf("Trying to close, current state%s\n", tcp_state_str[tsk->state]);
 
 	tcp_sock_close(tsk);
 
