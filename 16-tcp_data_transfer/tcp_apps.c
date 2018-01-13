@@ -74,7 +74,9 @@ void *tcp_client(void *arg)
 	char rbuf[1001];
 	int rlen = 0;
 
-	for (int i = 0; i < 10; i++) {
+	int i;
+	for (i = 0; i < 10; i++) {
+		printf("Trying to transmit\n");
 		if (tcp_sock_write(tsk, wbuf, strlen(wbuf)) < 0)
 			break;
 

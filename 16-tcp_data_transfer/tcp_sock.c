@@ -436,3 +436,18 @@ void tcp_sock_close(struct tcp_sock *tsk)
 			break;
 	}
 }
+
+int tcp_sock_read(struct tcp_sock *tsk, char *buf, int len){
+	fprintf(stdout, "TODO: implement this function please. tcp_sock_read\n");
+	int read_len = read_ring_buffer(tsk->rcv_buf, buf, len);
+	printf("Read a buffer: %s\n", buf);
+
+	return read_len;
+}
+
+int tcp_sock_write(struct tcp_sock *tsk, char *buf, int len){
+	fprintf(stdout, "TODO: implement this function please. tcp_sock_write\n");
+	tcp_send_packet(tsk, buf, len);
+	return len;
+	//return -1;
+}

@@ -177,6 +177,11 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 				tcp_send_control_packet(tsk, TCP_ACK);
 				tcp_set_state(tsk, TCP_CLOSE_WAIT);
 			}
+			if(cb->flags & TCP_PSH){
+				printf("Received a TCP data, len: %d\n", cb->pl_len);
+				write_ring_buffer(tsk->rcv_buf, cb->payload, cb->pl_len);
+				printf("Write %s to buffer\n", cb->payload);
+			}
 			break;
 		case TCP_FIN_WAIT_1:
 			printf("processing TCP_FIN_WAIT_1\n");
