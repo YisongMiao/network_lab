@@ -34,9 +34,7 @@ void tcp_send_packet(struct tcp_sock *tsk, char *packet, int len)
 	printf("Trying TCP sending\n");
 	dump_socket_info(tsk);
 	struct iphdr *ip = packet_to_ip_hdr(packet);
-	printf("1\n");
 	struct tcphdr *tcp = (struct tcphdr *)((char *)ip + IP_BASE_HDR_SIZE);
-	printf("2\n");
 
 	int ip_tot_len = len - ETHER_HDR_SIZE;
 	int tcp_data_len = ip_tot_len - IP_BASE_HDR_SIZE - TCP_BASE_HDR_SIZE;
@@ -45,16 +43,12 @@ void tcp_send_packet(struct tcp_sock *tsk, char *packet, int len)
 	u32	daddr = tsk->sk_dip;
 	u16 sport = tsk->sk_sport;
 	u16 dport = tsk->sk_dport;
-	printf("3\n");
 	u32 seq = tsk->snd_nxt;
 	u32 ack = tsk->rcv_nxt;
 	u16 rwnd = tsk->rcv_wnd;
-	printf("4\n");
 
 	tcp_init_hdr(tcp, sport, dport, seq, ack, TCP_PSH|TCP_ACK, rwnd);
-	printf("5\n");
 	ip_init_hdr(ip, saddr, daddr, ip_tot_len, IPPROTO_TCP); 
-	printf("6\n");
 
 	tcp->checksum = tcp_checksum(ip, tcp);
 
@@ -64,7 +58,6 @@ void tcp_send_packet(struct tcp_sock *tsk, char *packet, int len)
 	tsk->snd_wnd -= tcp_data_len;
 
 	ip_send_packet(packet, len);
-	printf("Should have sent\n");
 }
 
 // send a tcp control packet
@@ -136,6 +129,7 @@ int tcp_send_data(struct tcp_sock *tsk, char *buf, int len)
 
 	while (wlen < len) {
 		if (tsk->snd_wnd == 0) {
+			printf("Sleeping Zzzzz.....\n");
 			if (sleep_on(tsk->wait_send) < 0) {
 				return -1;
 			}
@@ -156,6 +150,7 @@ int tcp_send_data(struct tcp_sock *tsk, char *buf, int len)
 		memcpy(packet + hdr_size, buf + wlen, seg_size);
 
 		tcp_send_packet(tsk, packet, pkt_size);
+		printf("Send one!\n");
 
 		wlen += seg_size;
 	}

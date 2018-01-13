@@ -447,7 +447,7 @@ int tcp_sock_read(struct tcp_sock *tsk, char *buf, int len){
 
 int tcp_sock_write(struct tcp_sock *tsk, char *buf, int len){
 	fprintf(stdout, "TODO: implement this function please. tcp_sock_write\n");
-	tcp_send_packet(tsk, buf, len);
+	tcp_send_data(tsk, buf, len);
 	return len;
 	//return -1;
 }
