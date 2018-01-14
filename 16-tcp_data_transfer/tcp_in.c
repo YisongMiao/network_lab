@@ -53,6 +53,7 @@ static inline void tcp_update_window(struct tcp_sock *tsk, struct tcp_cb *cb)
 {
 	u16 old_snd_wnd = tsk->snd_wnd;
 	tsk->snd_wnd = cb->rwnd;
+	printf("New sending window size: %d\n", tsk->snd_wnd);
 	if (old_snd_wnd == 0)
 		wake_up(tsk->wait_send);
 }
@@ -147,13 +148,13 @@ static inline int is_tcp_seq_valid(struct tcp_sock *tsk, struct tcp_cb *cb)
 void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 {
 	//fprintf(stdout, "TODO: implement this function please. tcp_process\n");
-	printf("-----Under tcp_process\n");
+	//printf("-----Under tcp_process\n");
 	//printf("---------cb info:---------\n");
 	//log(DEBUG, IP_FMT", daddr", HOST_IP_FMT_STR(cb->daddr));
 	//log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(cb->saddr));
 	//log(DEBUG, "%hu, dport", cb->dport);
 	//log(DEBUG, "%hu, sport", cb->sport);
-	printf("Current TCP state is: %s\n", tcp_state_str[tsk->state]);
+	//printf("Current TCP state is: %s\n", tcp_state_str[tsk->state]);
 	switch(tsk->state){
 		case TCP_CLOSED:
 			printf("processing closed\n");
@@ -173,16 +174,16 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			break;
 		case TCP_ESTABLISHED:
 			//it is only for the server side.
-			printf("processing establish\n");
+			//printf("processing establish\n");
 			if(cb->flags & TCP_FIN){
 				tsk->rcv_nxt = cb->seq + 1;
 				tcp_send_control_packet(tsk, TCP_ACK);
 				tcp_set_state(tsk, TCP_CLOSE_WAIT);
 			}
 			if(cb->flags & TCP_PSH){
-				printf("Received a TCP data, len: %d\n", cb->pl_len);
+				printf("Received a TCP_PHSH data, len: %d\n", cb->pl_len);
 				write_ring_buffer(tsk->rcv_buf, cb->payload, cb->pl_len);
-				printf("Write %s to buffer\n", cb->payload);
+				tcp_update_window(tsk, cb);
 			}
 			break;
 		case TCP_FIN_WAIT_1:
@@ -207,5 +208,4 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			}
 			break;
 	}
-	printf("This process is over\n");
 }

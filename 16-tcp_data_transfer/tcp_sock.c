@@ -99,12 +99,12 @@ void free_tcp_sock(struct tcp_sock *tsk)
 struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u16 dport)
 {
 	//fprintf(stdout, "TODO: implement this function please.lookup establish\n");
-	printf("-----Under tcp_sock_lookup_established\n");
+	//printf("-----Under tcp_sock_lookup_established\n");
 	struct list_head *list;
 	int hash = tcp_hash_function(saddr, daddr, sport, dport); 
 	list = &tcp_established_sock_table[hash];
 	struct tcp_sock *tmp;
-	printf("------Desired hash entry is %d------\n", hash);
+	//printf("------Desired hash entry is %d------\n", hash);
 	list_for_each_entry(tmp, list, hash_list) {		
 		return tmp;
 	}
@@ -117,12 +117,12 @@ struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u1
 struct tcp_sock *tcp_sock_lookup_listen(u32 saddr, u16 sport)
 {
 	//fprintf(stdout, "TODO: implement this function please.lookup listen\n");
-	printf("-----Under tcp_sock_lookup_listen\n");
+	//printf("-----Under tcp_sock_lookup_listen\n");
 	struct list_head *list;
 	int hash = tcp_hash_function(0, 0, sport, 0);
 	list = &tcp_listen_sock_table[hash];
 	struct tcp_sock *tmp;
-	printf("------Desired hash entry is %d------\n", hash);
+	//printf("------Desired hash entry is %d------\n", hash);
 	list_for_each_entry(tmp, list, hash_list) {
 		return tmp;
 	}
@@ -139,7 +139,7 @@ struct tcp_sock *tcp_sock_lookup(struct tcp_cb *cb)
 
 	struct tcp_sock *tsk = tcp_sock_lookup_established(saddr, daddr, sport, dport);
 	if(tsk){
-		printf("lookup establish success\n");
+		//printf("lookup establish success\n");
 	}
 	if (!tsk){
 		tsk = tcp_sock_lookup_listen(saddr, sport);
@@ -428,7 +428,6 @@ void tcp_sock_close(struct tcp_sock *tsk)
 			tsk->state = TCP_FIN_WAIT_1;
 			printf("Switched state already\n");
 			tcp_send_control_packet(tsk, TCP_FIN|TCP_ACK);
-			//tcp_set_state(tsk, TCP_FIN_WAIT_1);
 			break;
 		case TCP_CLOSE_WAIT:
 			tcp_set_state(tsk, TCP_LAST_ACK);
@@ -438,19 +437,17 @@ void tcp_sock_close(struct tcp_sock *tsk)
 }
 
 int tcp_sock_read(struct tcp_sock *tsk, char *buf, int len){
-	//fprintf(stdout, "TODO: implement this function please. tcp_sock_read\n");
 	if(ring_buffer_empty(tsk->rcv_buf)){
-		//printf("Buffer is empty\n");
 		return 0;
 	}
 	int read_len = read_ring_buffer(tsk->rcv_buf, buf, len);
-	//printf("Read a buffer: %s\n", buf);
+	tsk->rcv_wnd = ring_buffer_free(tsk->rcv_buf);
+	printf("New rcv window size: %d\n", tsk->rcv_wnd);
 
 	return read_len;
 }
 
 int tcp_sock_write(struct tcp_sock *tsk, char *buf, int len){
-	fprintf(stdout, "TODO: implement this function please. tcp_sock_write\n");
 	tcp_send_data(tsk, buf, len);
 	return len;
 	//return -1;

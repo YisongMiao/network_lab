@@ -43,7 +43,7 @@ void *tcp_server(void *arg)
 		else if (rlen > 0) {
 			rbuf[rlen] = '\0';
 			sprintf(wbuf, "server echoes: %s", rbuf);
-			printf("Server to send index%d: %s\n", index, wbuf);
+			//printf("Server to send index%d: %s\n", index, wbuf);
 			if (tcp_sock_write(csk, wbuf, strlen(wbuf)) < 0) {
 				log(DEBUG, "tcp_sock_write return negative value, finish transmission.");
 				break;
@@ -79,7 +79,6 @@ void *tcp_client(void *arg)
 
 	int i;
 	for (i = 0; i < 10; i++) {
-		printf("Trying to transmit\n");
 		if (tcp_sock_write(tsk, wbuf, strlen(wbuf)) < 0)
 			break;
 

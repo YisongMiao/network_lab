@@ -148,7 +148,6 @@ int tcp_send_data(struct tcp_sock *tsk, char *buf, int len)
 		memcpy(packet + hdr_size, buf + wlen, seg_size);
 
 		tcp_send_packet(tsk, packet, pkt_size);
-		printf("Send one!\n");
 
 		wlen += seg_size;
 	}
