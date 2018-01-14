@@ -33,6 +33,7 @@ void *tcp_server(void *arg)
 	char rbuf[1001];
 	char wbuf[1024];
 	int rlen = 0;
+	int index = 0;
 	while (1) {
 		rlen = tcp_sock_read(csk, rbuf, 1000);
 		if (rlen < 0) {
@@ -42,11 +43,13 @@ void *tcp_server(void *arg)
 		else if (rlen > 0) {
 			rbuf[rlen] = '\0';
 			sprintf(wbuf, "server echoes: %s", rbuf);
+			printf("Server to send index%d: %s\n", index, wbuf);
 			if (tcp_sock_write(csk, wbuf, strlen(wbuf)) < 0) {
 				log(DEBUG, "tcp_sock_write return negative value, finish transmission.");
 				break;
 			}
 		}
+		index += 1;
 	}
 
 	log(DEBUG, "close this connection.");

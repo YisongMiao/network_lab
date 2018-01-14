@@ -46,27 +46,6 @@ void tcp_state_closed(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 	tcp_send_reset(cb);
 }
 
-// handling incoming packet for TCP_SYN_SENT state
-//
-// If everything goes well (the incoming packet is TCP_SYN|TCP_ACK), reply with 
-// TCP_ACK, and enter TCP_ESTABLISHED state, notify tcp_sock_connect; otherwise, 
-// reply with TCP_RST.
-void tcp_state_syn_sent(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
-{
-	//fprintf(stdout, "TODO: implement this function please.syn_sent\n");
-	printf("-----Under tcp_state_syn_sent\n");
-
-	struct tcphdr *the_tcphdr = packet_to_tcp_hdr(packet);
-	if(the_tcphdr->flags == (TCP_SYN + TCP_ACK)){
-		printf("Receive TCP_SYN|TCP_ACK\n");
-		tsk->rcv_nxt = cb->seq + 1;  //ack = y + 1
-		tcp_send_control_packet(tsk, TCP_ACK);
-		printf("*****Sent a TCP packet: TCP_ACK\n");
-		tcp_set_state(tsk, TCP_ESTABLISHED);
-		wake_up(tsk->wait_connect);
-	}
-}
-
 // update the snd_wnd of tcp_sock
 //
 // if the snd_wnd before updating is zero, notify tcp_sock_send (wait_send)
@@ -85,6 +64,28 @@ static inline void tcp_update_window_safe(struct tcp_sock *tsk, struct tcp_cb *c
 		tcp_update_window(tsk, cb);
 }
 
+// handling incoming packet for TCP_SYN_SENT state
+//
+// If everything goes well (the incoming packet is TCP_SYN|TCP_ACK), reply with 
+// TCP_ACK, and enter TCP_ESTABLISHED state, notify tcp_sock_connect; otherwise, 
+// reply with TCP_RST.
+void tcp_state_syn_sent(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
+{
+	//fprintf(stdout, "TODO: implement this function please.syn_sent\n");
+	printf("-----Under tcp_state_syn_sent\n");
+
+	struct tcphdr *the_tcphdr = packet_to_tcp_hdr(packet);
+	if(the_tcphdr->flags == (TCP_SYN + TCP_ACK)){
+		printf("Receive TCP_SYN|TCP_ACK\n");
+		tsk->rcv_nxt = cb->seq + 1;  //ack = y + 1
+		tcp_send_control_packet(tsk, TCP_ACK);
+		printf("*****Sent a TCP packet: TCP_ACK\n");
+		tcp_update_window(tsk, cb);
+		tcp_set_state(tsk, TCP_ESTABLISHED);
+		wake_up(tsk->wait_connect);
+	}
+}
+
 // handling incoming ack packet for tcp sock in TCP_SYN_RECV state
 //
 // 1. remove itself from parent's listen queue;
@@ -94,6 +95,7 @@ static inline void tcp_update_window_safe(struct tcp_sock *tsk, struct tcp_cb *c
 void tcp_state_syn_recv(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 {
 	fprintf(stdout, "TODO: implement this function please.syn_recv\n");
+	tcp_update_window(tsk, cb);
 	tcp_set_state(tsk, TCP_ESTABLISHED);
 	list_delete_entry(&tsk->list);
 	if(tsk->parent){

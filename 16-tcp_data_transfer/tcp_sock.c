@@ -438,9 +438,13 @@ void tcp_sock_close(struct tcp_sock *tsk)
 }
 
 int tcp_sock_read(struct tcp_sock *tsk, char *buf, int len){
-	fprintf(stdout, "TODO: implement this function please. tcp_sock_read\n");
+	//fprintf(stdout, "TODO: implement this function please. tcp_sock_read\n");
+	if(ring_buffer_empty(tsk->rcv_buf)){
+		//printf("Buffer is empty\n");
+		return 0;
+	}
 	int read_len = read_ring_buffer(tsk->rcv_buf, buf, len);
-	printf("Read a buffer: %s\n", buf);
+	//printf("Read a buffer: %s\n", buf);
 
 	return read_len;
 }

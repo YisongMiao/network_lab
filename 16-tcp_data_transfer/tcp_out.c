@@ -31,8 +31,6 @@ static void tcp_init_hdr(struct tcphdr *tcp, u16 sport, u16 dport, u32 seq, u32 
 // the packet by calling ip_send_packet.
 void tcp_send_packet(struct tcp_sock *tsk, char *packet, int len) 
 {
-	printf("Trying TCP sending\n");
-	dump_socket_info(tsk);
 	struct iphdr *ip = packet_to_ip_hdr(packet);
 	struct tcphdr *tcp = (struct tcphdr *)((char *)ip + IP_BASE_HDR_SIZE);
 
