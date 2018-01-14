@@ -303,16 +303,10 @@ int tcp_sock_connect(struct tcp_sock *tsk, struct sock_addr *skaddr)
 	if(tcp_sock_set_sport(tsk, 12346) < 0){  //here automatically
 		log(ERROR, "12346 is already used");
 	}
-	printf("Trying to send\n");
 	tsk->rcv_nxt = 0;  //means ack eqauls to 0
 	tcp_set_state(tsk, TCP_SYN_SENT);
-	printf("control packet sent\n");
-	//tcp_set_state(tsk, TCP_SYN_SENT);
-	printf("State set\n");
-	tcp_hash(tsk);  //BB-8 Edited
-	printf("Hashed!!!\n");
+	tcp_hash(tsk);
 	tcp_send_control_packet(tsk, TCP_SYN);
-	//sleep_on(tsk->wait_connect);
 	if(!sleep_on(tsk->wait_connect)){
 		printf("The Force Awaken\n");
 		return 1;

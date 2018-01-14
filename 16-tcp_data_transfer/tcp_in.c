@@ -181,6 +181,7 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 				tcp_set_state(tsk, TCP_CLOSE_WAIT);
 			}
 			if(cb->flags & TCP_PSH){
+				tsk->rcv_nxt = cb->seq + 1;
 				printf("Received a TCP_PHSH data, len: %d\n", cb->pl_len);
 				write_ring_buffer(tsk->rcv_buf, cb->payload, cb->pl_len);
 				tcp_update_window(tsk, cb);
