@@ -145,33 +145,21 @@ static inline int is_tcp_seq_valid(struct tcp_sock *tsk, struct tcp_cb *cb)
 void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 {
 	//fprintf(stdout, "TODO: implement this function please. tcp_process\n");
-	printf("-----Under tcp_process\n");
-	//printf("---------cb info:---------\n");
-	//log(DEBUG, IP_FMT", daddr", HOST_IP_FMT_STR(cb->daddr));
-	//log(DEBUG, IP_FMT", saddr", HOST_IP_FMT_STR(cb->saddr));
-	//log(DEBUG, "%hu, dport", cb->dport);
-	//log(DEBUG, "%hu, sport", cb->sport);
-	printf("Current TCP state is: %s\n", tcp_state_str[tsk->state]);
 	switch(tsk->state){
 		case TCP_CLOSED:
-			printf("processing closed\n");
 			tcp_state_closed(tsk, cb, packet);
 			break;
 		case TCP_LISTEN:
-			printf("processing listen\n");
 			tcp_state_listen(tsk, cb, packet);
 			break;
 		case TCP_SYN_SENT:
-			printf("processing syn_sent\n");
 			tcp_state_syn_sent(tsk, cb, packet);
 			break;
 		case TCP_SYN_RECV:
-			printf("processing syn_recv\n");
 			tcp_state_syn_recv(tsk, cb, packet);
 			break;
 		case TCP_ESTABLISHED:
 			//it is only for the server side.
-			printf("processing establish\n");
 			if(cb->flags & TCP_FIN){
 				tsk->rcv_nxt = cb->seq + 1;
 				tcp_send_control_packet(tsk, TCP_ACK);
@@ -179,13 +167,11 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			}
 			break;
 		case TCP_FIN_WAIT_1:
-			printf("processing TCP_FIN_WAIT_1\n");
 			if(cb->flags & TCP_ACK){
 				tcp_set_state(tsk, TCP_FIN_WAIT_2);
 			}
 			break;
 		case TCP_FIN_WAIT_2:
-			printf("processing TCP_FIN_WAIT_2\n");
 			if(cb->flags & TCP_FIN){
 				tsk->rcv_nxt = cb->seq + 1;
 				tcp_send_control_packet(tsk, TCP_ACK);
@@ -194,11 +180,19 @@ void tcp_process(struct tcp_sock *tsk, struct tcp_cb *cb, char *packet)
 			}
 			break;
 		case TCP_LAST_ACK:
-			printf("processing TCP_LAST_ACK\n");
 			if(cb->flags & TCP_ACK){
 				tcp_set_state(tsk, TCP_CLOSED);
 			}
 			break;
 	}
-	printf("This process is over\n");
+	if(cb->flags & TCP_RST){  //check RST
+		tcp_sock_close(tsk);
+		free_tcp_sock(tsk);
+	}
+	//if(cb->flags & TCP_SYN){  //check SYN
+	//	if(tsk->state != TCP_CLOSED && tsk->state != TCP_SYN_SENT){
+	//		tcp_send_control_packet(tsk, TCP_RST);
+	//		tcp_sock_close(tsk);
+	//	}
+	//}
 }

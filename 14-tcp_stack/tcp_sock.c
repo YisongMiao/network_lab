@@ -104,9 +104,11 @@ struct tcp_sock *tcp_sock_lookup_established(u32 saddr, u32 daddr, u16 sport, u1
 	int hash = tcp_hash_function(saddr, daddr, sport, dport); 
 	list = &tcp_established_sock_table[hash];
 	struct tcp_sock *tmp;
-	printf("------Desired hash entry is %d------\n", hash);
-	list_for_each_entry(tmp, list, hash_list) {		
-		return tmp;
+	//printf("------Desired hash entry is %d------\n", hash);
+	list_for_each_entry(tmp, list, hash_list) {
+		if(tmp->sk_sip == saddr && tmp->sk_dip == daddr && tmp->sk_sport == sport && tmp->sk_dport){
+			return tmp;
+		}
 	}
 	return NULL;
 }
@@ -122,9 +124,11 @@ struct tcp_sock *tcp_sock_lookup_listen(u32 saddr, u16 sport)
 	int hash = tcp_hash_function(0, 0, sport, 0);
 	list = &tcp_listen_sock_table[hash];
 	struct tcp_sock *tmp;
-	printf("------Desired hash entry is %d------\n", hash);
+	//printf("------Desired hash entry is %d------\n", hash);
 	list_for_each_entry(tmp, list, hash_list) {
-		return tmp;
+		if(tmp->sk_sport == sport){
+			return tmp;
+		}
 	}
 	return NULL;
 }
@@ -381,7 +385,7 @@ struct tcp_sock *tcp_sock_accept(struct tcp_sock *tsk)
 		sleep_on(tsk->wait_accept);
 		printf("accept Force Awaken\n");
 		struct tcp_sock * the_tcp_socket = tcp_sock_accept_dequeue(tsk);
-		dump_socket_info(the_tcp_socket);
+		//dump_socket_info(the_tcp_socket);
 		return the_tcp_socket;
 	}
 	else{

@@ -79,7 +79,6 @@ void tcp_send_control_packet(struct tcp_sock *tsk, u8 flags)
 	u16 tot_len = IP_BASE_HDR_SIZE + TCP_BASE_HDR_SIZE;
 
 	ip_init_hdr(ip, tsk->sk_sip, tsk->sk_dip, tot_len, IPPROTO_TCP);
-	printf("tcp seq: %d\n", tsk->snd_nxt);
 	tcp_init_hdr(tcp, tsk->sk_sport, tsk->sk_dport, tsk->snd_nxt, \
 			tsk->rcv_nxt, flags, tsk->rcv_wnd);
 
