@@ -1,0 +1,77 @@
+dumping the mac_port table:
+We have inserted fd: 13 into 193th position
+We have inserted fd: 17 into 99th position
+dumping the mac_port table:
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 0
+We have inserted fd: 15 into 35th position
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 1
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 1
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 1
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 1
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 1
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 1
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 1
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 1
+Printing mac_table from i = 99
+aa:dd:44:7f:f4:db -> s1-eth2, fd: 17, visited_time: 2
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 1
+good
+We are deleting fd:17
+We have deleted fd:17
+Current time: 10 seconds, 1 aged entries in mac_port table are removed.dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 2
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 2
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 1
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 1
+dumping the mac_port table:
+Printing mac_table from i = 35
+f6:4f:d8:4a:cd:c5 -> s1-eth1, fd: 15, visited_time: 2
+Printing mac_table from i = 193
+ca:94:31:d8:4e:38 -> s1-eth0, fd: 13, visited_time: 2
+good
+We are deleting fd:15
+We have deleted fd:15
+good
+We are deleting fd:13
+We have deleted fd:13
+Current time: 13 seconds, 2 aged entries in mac_port table are removed.dumping the mac_port table:

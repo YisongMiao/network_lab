@@ -1,0 +1,35 @@
+yesSocket createdbind doneWaiting for incoming connections...Connection accepted17 Bytes are Received
+Successfully Received relative_location: war_and_peace.txt
+Successfully Received start_point: 1679775
+Successfullt Received end_point: 3359550
+Current working dir: /home/yisongmiao/networking/04-socket
+Absolute Location is:/home/yisongmiao/networking/04-socket/war_and_peace.txt
+Successfully Opened File
+start_point and end_point are respectively:1679775, 3359550
+current_position is:3359550
+Successfully send 0th count: 101487
+Successfully send 1th count: 17620
+Successfully send 2th count: 32273
+Successfully send 3th count: 59337
+Successfully send 4th count: 159494
+Successfully send 5th count: 28956
+Successfully send 6th count: 24997
+Successfully send 7th count: 84351
+Successfully send 8th count: 85794
+Successfully send 9th count: 1265
+Successfully send 10th count: 9497
+Successfully send 11th count: 48002
+Successfully send 12th count: 31181
+Successfully send 13th count: 92888
+Successfully send 14th count: 96756
+Successfully send 15th count: 23441
+Successfully send 16th count: 1178
+Successfully send 17th count: 74738
+Successfully send 18th count: 82121
+Successfully send 19th count: 116465
+Successfully send 20th count: 32084
+Successfully send 21th count: 13142
+Successfully send 22th count: 29662
+Successfully send 23th count: 2153
+Successfully send 24th count: 23106
+Successfully send 25th count: 1250

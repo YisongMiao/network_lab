@@ -1,0 +1,101 @@
+good
+Current working dir: /home/yisongmiao/networking/04-socket
+The absolute path is:/home/yisongmiao/networking/04-socket/war_and_peace.txt
+The length is:3359550
+good
+Current Start Point:0, Current End Point:1679775
+Socket created
+We are currently trying to connect to 10.0.0.2
+
+Successfully Connected to: 10.0.0.2
+
+Successfully sent relative location:war_and_peace.txt
+Successfully sent start point:0
+Successfully sent End point:-1616832256
+Current Start Point:1679775, Current End Point:3359550
+Socket created
+We are currently trying to connect to 10.0.0.3
+
+Successfully Connected to: 10.0.0.3
+
+Successfully sent relative location:war_and_peace.txt
+Successfully sent start point:-1616832256
+Successfully sent End point:1044591360
+Successfully received from :101230
+Successfully received from :17038
+Successfully received from :29349
+Successfully received from :58961
+Successfully received from :154081
+Successfully received from :25945
+Successfully received from :26330
+Successfully received from :83064
+Successfully received from :86463
+Successfully received from :1309
+Successfully received from :10935
+Successfully received from :48530
+Successfully received from :30468
+Successfully received from :91296
+Successfully received from :93327
+Successfully received from :22092
+Successfully received from :1153
+Successfully received from :73693
+Successfully received from :80776
+Successfully received from :109949
+Successfully received from :32315
+Successfully received from :13945
+Successfully received from :29547
+Successfully received from :2231
+Successfully received from :23129
+Successfully received from :1138
+Successfully received from :101487
+Successfully received from :17620
+Successfully received from :32273
+Successfully received from :59337
+Successfully received from :159494
+Successfully received from :28956
+Successfully received from :24997
+Successfully received from :84351
+Successfully received from :85794
+Successfully received from :1265
+Successfully received from :9497
+Successfully received from :48002
+Successfully received from :31181
+Successfully received from :92888
+Successfully received from :96756
+Successfully received from :23441
+Successfully received from :1178
+Successfully received from :74738
+Successfully received from :82121
+Successfully received from :116465
+Successfully received from :32084
+Successfully received from :13142
+Successfully received from :29662
+Successfully received from :2153
+Successfully received from :23106
+Successfully received from :1250
+a 202717
+b 34658
+c 61622
+d 118298
+e 313575
+f 54901
+g 51327
+h 167415
+i 172257
+j 2574
+k 20432
+l 96532
+m 61649
+n 184184
+o 190083
+p 45533
+q 2331
+r 148431
+s 162897
+t 226414
+u 64399
+v 27087
+w 59209
+x 4384
+y 46235
+z 2388

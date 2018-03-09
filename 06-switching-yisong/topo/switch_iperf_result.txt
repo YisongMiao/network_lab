@@ -1,0 +1,422 @@
+dumping the mac_port table:
+dumping the mac_port table:
+dumping the mac_port table:
+dumping the mac_port table:
+We have inserted fd: 17 into 203th position
+We have inserted fd: 13 into 107th position
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+We have inserted fd: 15 into 252th position
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 0
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 1
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 0
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 2
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 0
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 1
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 3
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 1
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 2
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 4
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 2
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 3
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 5
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 3
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 4
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 6
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 4
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 5
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 7
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 5
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 6
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 8
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 6
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 7
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 9
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 7
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 8
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 10
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 8
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 9
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 11
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 9
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 10
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 12
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 10
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 11
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 13
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 11
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 12
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 14
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 12
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 13
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 15
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 13
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 14
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 16
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 14
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 15
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 17
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 15
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 16
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 18
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 16
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 17
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 19
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 17
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 18
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 20
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 18
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 19
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 21
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 19
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 20
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 22
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 20
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 21
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 23
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 21
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 22
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 24
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 22
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 23
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 25
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 23
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 24
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 26
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 24
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 25
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 27
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 25
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 26
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 28
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 26
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 27
+Printing mac_table from i = 203
+f6:29:43:88:f6:29 -> s1-eth2, fd: 17, visited_time: 29
+Printing mac_table from i = 252
+6e:f4:14:bf:32:ff -> s1-eth1, fd: 15, visited_time: 27
+dumping the mac_port table:
+Printing mac_table from i = 107
+ba:46:d1:bf:ad:54 -> s1-eth0, fd: 13, visited_time: 28
+Printing mac_

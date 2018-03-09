@@ -1,0 +1,15 @@
+"We should break a abstract problem down to clear and simple sub-problem."
+--Prof Min.
+
+Unibit-Trie:
+High-level description:
+	We read every line from forwarding-table.txt.
+	
+	-Then we constrcut the unibit trie:
+		-Show the total line and the percentage of work.
+		-Translate the decimal into binary, and specially check the mask length.
+		-If entry already exist, do nothing.
+		-If entry not exist, insert
+			-So how to insert?
+
+	-When the translation is done, we do the search part.		

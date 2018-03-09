@@ -1,0 +1,345 @@
+TODO: send mOSPF LSU message periodically.
+-------Dumping nbr-------
+---Nbr done.---
+------Dumping DB------
+now is :11668628
+------Done Dumping DB------
+TODO: neighbor list timeout operation.
+TODO: send mOSPF LSU message periodically.
+TODO: send mOSPF Hello message periodically.
+TODO: handle mOSPF Hello message.
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668633
+------Done Dumping DB------
+Insert new lsa info
+Insert new lsa info
+TODO: handle mOSPF Hello message.
+Insert new lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+Update lsa info
+------Dumping DB------
+now is :11668638
+We are printing 1th db_entry
+rid: 167772931
+seq: 2
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167772674
+seq: 2
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 3
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Update lsa info
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+Update lsa info
+Update lsa info
+------Dumping DB------
+now is :11668643
+We are printing 1th db_entry
+rid: 167772931
+seq: 5
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167772674
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 5
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+TODO: handle mOSPF Hello message.
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668648
+We are printing 1th db_entry
+rid: 167772931
+seq: 5
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167772674
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 5
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+------Dumping DB------
+now is :11668653
+We are printing 1th db_entry
+rid: 167772931
+seq: 6
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167772674
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 7
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668658
+We are printing 1th db_entry
+rid: 167772931
+seq: 6
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167772674
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 7
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Time out! cleaning DB entry
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+------Dumping DB------
+now is :11668663
+We are printing 1th db_entry
+rid: 167772931
+seq: 8
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167773188
+seq: 9
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Time out! cleaning neighbor
+TODO: handle mOSPF Hello message.
+Update lsa info
+------Dumping DB------
+now is :11668668
+We are printing 1th db_entry
+rid: 167772931
+seq: 8
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167773188
+seq: 10
+nadv: 1
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+------Dumping DB------
+now is :11668673
+We are printing 1th db_entry
+rid: 167772931
+seq: 10
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167773188
+seq: 11
+nadv: 1
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668678
+We are printing 1th db_entry
+rid: 167772931
+seq: 10
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 2th db_entry
+rid: 167773188
+seq: 11
+nadv: 1
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+------Dumping DB------
+now is :11668683
+We are printing 1th db_entry
+rid: 167772931
+se

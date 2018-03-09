@@ -1,0 +1,8 @@
+1. arpcache的结构体，属于路由器，还是属于每一个节点？
+2. 哪些信息是packet中包含的？
+	比如 ip.c：
+	struct iphdr *ip = packet_to_ip_hdr(packet);
+	u32 dst = ntohl(ip->daddr);
+	好像packet就包含了ip的信息。
+3. 在哪里 void ip_init_hdr() ?
+4. how to judge if packet is ping or not?

@@ -1,0 +1,9 @@
+1. 如何解决 h1 ping r1-eth0?
+	-> 需要识别 packet->daddr就是当前route端口
+
+2. ICMP包里的问题
+	-> ether head, source mac addr? dest mac addr?
+	-> IP head
+		-> 不同类型的失败，是否有区别？
+	-> Rest of ICMP Header, 与定义好的结构题不一致，4字节会覆盖identifier!
+	

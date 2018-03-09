@@ -1,0 +1,109 @@
+------Dumping DB------
+now is :11668629
+------Done Dumping DB------
+TODO: send mOSPF LSU message periodically.
+-------Dumping nbr-------
+---Nbr done.---
+TODO: send mOSPF LSU message periodically.
+TODO: neighbor list timeout operation.
+TODO: send mOSPF Hello message periodically.
+Insert new lsa info
+Update lsa info
+TODO: handle mOSPF Hello message.
+TODO: handle mOSPF Hello message.
+Insert new lsa info
+------Dumping DB------
+now is :11668634
+We are printing 1th db_entry
+rid: 167772417
+seq: 2
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772931
+We are printing 2th db_entry
+rid: 167772931
+seq: 2
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+------Done Dumping DB------
+Insert new lsa info
+Update lsa info
+Update lsa info
+TODO: handle mOSPF Hello message.
+Update lsa info
+Update lsa info
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668639
+We are printing 1th db_entry
+rid: 167772417
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772931
+We are printing 2th db_entry
+rid: 167772931
+seq: 2
+nadv: 2
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772417
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167773188
+We are printing 3th db_entry
+rid: 167773188
+seq: 3
+nadv: 2
+--
+    subnet:10.0.4.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.5.0 
+    mask:255.255.255.0 
+    rid:167772931
+------Done Dumping DB------
+Update lsa info
+Update lsa info
+Update lsa info
+Update lsa info
+TODO: handle mOSPF Hello message.
+TODO: handle mOSPF Hello message.
+------Dumping DB------
+now is :11668644
+We are printing 1th db_entry
+rid: 167772417
+seq: 5
+nadv: 2
+--
+    subnet:10.0.2.0 
+    mask:255.255.255.0 
+    rid:167772674
+--
+    subnet:10.0.3.0 
+    mask:255.255.255.0 
+    rid:167772931
+We are printing 2th db_entry
+rid: 1677
