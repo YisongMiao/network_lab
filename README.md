@@ -7,8 +7,7 @@ We then move on to IP level, we designed a router with ARP-Cache, ARP-protocol, 
 We finally move on to TCP level, the change of TCP states was supported by a Finite State Machine.
 
 # Acknowledgement
-I want to thank Prof Wu for his enthusiasm in teaching, well-formed framework code, thoughtful design for every experiment, and very warm and patient individual tea
-ching to me myself.
+I want to thank Prof Wu for his enthusiasm in teaching, well-formed framework code, thoughtful design for every experiment, and very warm and patient individual teaching to me myself.
 I also want to thank all my classmates who shared this great joruney with me.
 
 # Contact
